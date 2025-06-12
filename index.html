@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kwantik Global</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @layer components {
+            /* .btn-primary {
+            @apply py-1.5 px-3 text-center bg-blue-700 rounded-md text-white;
+        } */
+        }
+
+        tailwind.config= {
+
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    keyframes: {
+                        scroll: {
+                            "0%": {
+                                transform: "translate(0%)"
+                            }
+
+                            ,
+                            "95%": {
+                                transform: "translate(-95%)"
+                            }
+                        }
+
+                        ,
+                        scrollReverse: {
+                            "0%": {
+                                transform: "translate(-55%)"
+                            }
+
+                            ,
+                            "95%": {
+                                transform: "translate(55%)"
+                            }
+                        }
+
+                    }
+
+                    ,
+                    animation: {
+                        scroll: 'scroll 100s infinite',
+                            scrollReverse: 'scrollReverse 100s infinite',
+                    }
+                }
+            }
+        }
+
+        .hero-slide {
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-content {
+            transition: all 0.6s ease 0.3s;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .call1 {
+            background-image: url('https://img.freepik.com/free-photo/high-voltage-tower-isolated-sky_1359-380.jpg?uid=R100560690&ga=GA1.1.920412282.1744557287&semt=ais_hybrid&w=740');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .call2 {
+            background-image: url('https://img.freepik.com/premium-photo/construction-site-african-worker-wearing-safety-vest-helmet-holding-radio-solar-panel_255667-74557.jpg?uid=R100560690&ga=GA1.1.920412282.1744557287&semt=ais_hybrid&w=740');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+
+</head>
+
+<body class="bg-[#121212]">
+    <!-- ========== HEADER ========== -->
+    <header class="bg-[#20182B] shadow-xl shadow-inner border-gray-700">
+        <nav x-data="{ mobileMenuIsOpen: false }" x-on:click.away="mobileMenuIsOpen = false"
+            class="flex items-center justify-between px-6 py-4  container mx-auto" aria-label="penguin ui menu">
+            <!-- Brand Logo -->
+            <a href="#"
+                class="text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong text-yellow-500">
+                <img src="assets/imgs/logo.png" alt="" class="w-40 ">
+            </a>
+            <!-- Desktop Menu -->
+            <ul class="hidden items-center gap-4 sm:flex text-gray-50 text-sm gap-10">
+                <li>
+                    <a href="#" class="font-medium text-on-surface underline-offset-2
+                         hover:text-yellow-500 focus:outline-hidden focus:underline 
+                         dark:text-on-surface-dark dark:hover:text-primary-dark
+                         text-md  text-gray-300 
+                         text-gray-300">Início</a>
+                </li>
+                <li>
+                    <a href="#parceiro" class="
+                         text-md
+                         hover:text-yellow-500 
+                         font-medium text-on-surface underline-offset-2 hover:text-primary focus:outline-hidden 
+                         focus:underline dark:text-on-surface-dark dark:hover:text-primary-dark 
+                         text-gray-300">Parceiros e Clientes</a>
+                </li>
+                <li>
+                    <a href="#sobre"
+                        class="
+                          text-mb
+                         hover:text-yellow-500 
+                        font-medium text-on-surface 
+                        text-gray-300 underline-offset-2 hover:text-primary focus:outline-hidden focus:underline dark:text-on-surface-dark dark:hover:text-primary-dark">Sobre</a>
+                </li>
+                <li>
+                    <a href="#servico" class="
+                         text-mb
+                         hover:text-yellow-500 
+                        font-medium text-on-surface underline-offset-2 hover:text-primary 
+                        focus:outline-hidden focus:underline dark:text-on-surface-dark
+                         dark:hover:text-primary-dark 
+                         text-gray-300">Serviços</a>
+                </li>
+                <li>
+                    <a href="#portfolio" class="
+                         text-md
+                         hover:text-yellow-500 
+                        font-medium text-on-surface underline-offset-2 
+                        hover:text-primary focus:outline-hidden focus:underline
+                         dark:text-on-surface-dark dark:hover:text-primary-dark 
+                         text-gray-300">Portfólios</a>
+                </li>
+                <li>
+                    <a href="#contacto" class="
+                         text-md
+                         hover:text-yellow-500 
+                        font-medium text-on-surface underline-offset-2 
+                        hover:text-primary focus:outline-hidden focus:underline
+                         dark:text-on-surface-dark dark:hover:text-primary-dark 
+                         text-gray-300">Contactos</a>
+                </li>
+
+                <li>
+                    <a href=""
+                        class="inline-flex justify-center items-center gap-2 whitespace-nowrap rounded-radius
+                      bg-green-500 dark:border-success px-4 py-2.5 text-sm font-medium rounded-2xl
+                      tracking-wide text-on-success transition hover:opacity-75 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-success dark:text-on-success dark:focus-visible:outline-success">
+                        <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" fill="none" viewBox="0 0 24 24">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z"
+                                clip-rule="evenodd" />
+                            <path fill="currentColor"
+                                d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z" />
+                        </svg>
+
+                        Chamar no whatsapp
+                    </a>
+                </li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button x-on:click="mobileMenuIsOpen = !mobileMenuIsOpen" x-bind:aria-expanded="mobileMenuIsOpen"
+                x-bind:class="mobileMenuIsOpen ? 'fixed top-6 right-6 z-20' : null" type="button"
+                class="flex text-on-surface dark:text-on-surface-dark sm:hidden" aria-label="mobile menu"
+                aria-controls="mobileMenu">
+                <svg x-cloak x-show="!mobileMenuIsOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    aria-hidden="true" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg x-cloak x-show="mobileMenuIsOpen" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true"
+                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <!-- Mobile Menu -->
+            <ul x-cloak x-show="mobileMenuIsOpen"
+                x-transition:enter="transition motion-reduce:transition-none ease-out duration-300"
+                x-transition:enter-start="-translate-y-full" x-transition:enter-end="translate-y-0"
+                x-transition:leave="transition motion-reduce:transition-none ease-out duration-300"
+                x-transition:leave-start="translate-y-0" x-transition:leave-end="-translate-y-full" id="mobileMenu"
+                class="fixed max-h-svh overflow-y-auto inset-x-0 top-0 z-10 flex flex-col divide-y divide-outline rounded-b-radius border-b border-outline bg-surface-alt px-6 pb-6 pt-20 dark:divide-outline-dark dark:border-outline-dark dark:bg-surface-dark-alt sm:hidden">
+                <li class="py-4"><a href="#"
+                        class="w-full text-lg font-bold text-primary focus:underline dark:text-primary-dark"
+                        aria-current="page">Products</a></li>
+                <li class="py-4"><a href="#"
+                        class="w-full text-lg font-medium text-on-surface focus:underline dark:text-on-surface-dark">Pricing</a>
+                </li>
+                <li class="py-4"><a href="#"
+                        class="w-full text-lg font-medium text-on-surface focus:underline dark:text-on-surface-dark">Blog</a>
+                </li>
+                <!-- CTA Button -->
+                <li class="mt-4 w-full border-none"><a href="#"
+                        class="rounded-radius border border-primary bg-primary px-4 py-2 block text-center font-medium tracking-wide text-on-primary hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 dark:bg-primary-dark dark:border-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark">Sign
+                        Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ========== END HEADER ========== -->
+    <main>
+        <!-- ========== END HERO========== -->
+        <div x-data="heroSlider()" class="relative overflow-hidden" @mouseenter="autoplay = false"
+            @mouseleave="autoplay = true">
+            <div class="relative h-[80vh] min-h-[500px]">
+                <template x-for="(slide, index) in slides" :key="index">
+                    <div x-show="currentSlide === index" x-transition.opacity.duration.800ms class="absolute inset-0">
+                        <div class="absolute inset-0 bg-gray-800">
+                            <img :src="slide.image" :alt="slide.title" class="w-full h-full object-cover opacity-80"
+                                @error="replaceBrokenImage($event)" loading="lazy">
+                        </div>
+
+                        <div class="container mx-auto px-6 h-full flex items-center">
+                            <div class="max-w-2xl text-white slide-content" :class="{
+                                    'translate-x-0 opacity-100': currentSlide === index,
+                                    'translate-x-10 opacity-0': currentSlide !== index
+                                }">
+                                <h2 x-text="slide.title" class="text-4xl md:text-5xl font-bold mb-4"></h2>
+                                <p x-text="slide.description" class="text-xl md:text-2xl mb-8"></p>
+                                <a :href="slide.buttonUrl" class="inline-flex justify-center items-center gap-x-3 text-center bg-linear-to-tl from-yellow-600 
+                                to-yellow-600 hover:from-yellow-700 hover:to-blue-600 focus:outline-hidden
+                                 focus:from-yellow-600 focus:to-yellow-600 border border-transparent text-white 
+                                 text-sm font-medium rounded-2xl py-3 px-4" x-text="slide.buttonText"></a>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+                    <template x-for="(slide, index) in slides" :key="index">
+                        <button type="button" @click="goTo(index)"
+                            class="w-2 h-2 md:w-3 md:h-3 rounded-full transition-all cursor-pointer" :class="{
+                                'bg-white w-4 md:w-6': currentSlide === index,
+                                'bg-white/50': currentSlide !== index
+                            }" :aria-label="`Go to slide ${index + 1}`"></button>
+                    </template>
+                </div>
+            </div>
+        </div>
+        <!-- ========== END HERO ========== -->
+
+        <!-- PARTHNERS AND CLIENTS -->
+        <div id="parceiro" class="relative overflow-hidden pt-4 bg-neutral-900">
+            <svg class="absolute -bottom-20 start-1/2 w-[1900px] transform -translate-x-1/2" width="2745" height="488"
+                viewBox="0 0 2745 488" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0.5 330.864C232.505 403.801 853.749 527.683 1482.69 439.719C2111.63 351.756 2585.54 434.588 2743.87 487"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 308.873C232.505 381.81 853.749 505.692 1482.69 417.728C2111.63 329.765 2585.54 412.597 2743.87 465.009"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 286.882C232.505 359.819 853.749 483.701 1482.69 395.738C2111.63 307.774 2585.54 390.606 2743.87 443.018"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 264.891C232.505 337.828 853.749 461.71 1482.69 373.747C2111.63 285.783 2585.54 368.615 2743.87 421.027"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 242.9C232.505 315.837 853.749 439.719 1482.69 351.756C2111.63 263.792 2585.54 346.624 2743.87 399.036"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 220.909C232.505 293.846 853.749 417.728 1482.69 329.765C2111.63 241.801 2585.54 324.633 2743.87 377.045"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 198.918C232.505 271.855 853.749 395.737 1482.69 307.774C2111.63 219.81 2585.54 302.642 2743.87 355.054"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 176.927C232.505 249.864 853.749 373.746 1482.69 285.783C2111.63 197.819 2585.54 280.651 2743.87 333.063"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 154.937C232.505 227.873 853.749 351.756 1482.69 263.792C2111.63 175.828 2585.54 258.661 2743.87 311.072"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 132.946C232.505 205.882 853.749 329.765 1482.69 241.801C2111.63 153.837 2585.54 236.67 2743.87 289.082"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 110.955C232.505 183.891 853.749 307.774 1482.69 219.81C2111.63 131.846 2585.54 214.679 2743.87 267.091"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 88.9639C232.505 161.901 853.749 285.783 1482.69 197.819C2111.63 109.855 2585.54 192.688 2743.87 245.1"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 66.9729C232.505 139.91 853.749 263.792 1482.69 175.828C2111.63 87.8643 2585.54 170.697 2743.87 223.109"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 44.9819C232.505 117.919 853.749 241.801 1482.69 153.837C2111.63 65.8733 2585.54 148.706 2743.87 201.118"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 22.991C232.505 95.9276 853.749 219.81 1482.69 131.846C2111.63 43.8824 2585.54 126.715 2743.87 179.127"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+                <path
+                    d="M0.5 1C232.505 73.9367 853.749 197.819 1482.69 109.855C2111.63 21.8914 2585.54 104.724 2743.87 157.136"
+                    class="stroke-neutral-700/50" stroke="currentColor" />
+            </svg>
+
+            <div class="relative z-10">
+                <div class="max-w-5xl px-4 xl:px-0 mx-auto">
+                    <div class="mb-4">
+                        <h2 class="text-neutral-400">Conheça nossos parceiros e clinetes</h2>
+                    </div>
+
+                    <div class="flex justify-between gap-6">
+                        <svg class="py-3 lg:py-5 w-16 h-auto md:w-20 lg:w-24 text-neutral-400"
+                            enable-background="new 0 0 2499 614" viewBox="0 0 2499 614"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m431.7 0h-235.5v317.8h317.8v-235.5c0-45.6-36.7-82.3-82.3-82.3zm-308.9 0h-40.5c-45.6 0-82.3 36.7-82.3 82.3v40.5h122.8zm-122.8 196.2h122.8v122.8h-122.8zm392.5 317.8h40.5c45.6 0 82.3-36.7 82.3-82.3v-39.2h-122.8zm-196.3-121.5h122.8v122.8h-122.8zm-196.2 0v40.5c0 45.6 36.7 82.3 82.3 82.3h40.5v-122.8zm828-359.6h-48.1v449.4h254.5v-43h-206.4zm360.8 119c-93.7 0-159.5 69.6-159.5 169.6v11.5c1.3 43 20.3 83.6 51.9 113.9 30.4 27.9 69.6 44.3 111.4 44.3h6.3c44.3 0 86.1-16.5 119-44.3l1.3-1.3-21.5-35.4-2.5 1.3c-26.6 24.1-59.5 38-94.9 38-58.2 0-117.7-38-121.5-122.8h243.1v-2.5s1.3-15.2 1.3-22.8c-.3-91.2-53.4-149.5-134.4-149.5zm-108.9 134.2c10.1-57 51.9-93.7 106.3-93.7 40.5 0 84.8 24.1 88.6 93.7zm521.6-96.2v16.5c-20.3-34.2-58.2-55.7-97.5-55.7h-3.8c-86.1 0-145.6 68.4-145.6 168.4 0 101.3 57 169.6 141.8 169.6 67.1 0 97.5-40.5 107.6-58.2v49.4h45.6v-447h-46.8v157zm-98.8 257c-59.5 0-98.7-50.6-98.7-126.6 0-73.4 41.8-125.3 100-125.3 49.4 0 98.7 39.2 98.7 125.3 0 93.7-51.9 126.6-100 126.6zm424.1-250.7v2.5c-8.9-15.2-36.7-48.1-103.8-48.1-84.8 0-140.5 64.6-140.5 163.3s58.2 165.8 144.3 165.8c46.8 0 78.5-16.5 100-50.6v44.3c0 62-39.2 97.5-108.9 97.5-29.1 0-59.5-7.6-86.1-21.5l-2.5-1.3-17.7 39.2 2.5 1.3c32.9 16.5 69.6 25.3 105.1 25.3 74.7 0 154.4-38 154.4-143.1v-311.3h-46.8zm-93.7 241.8c-62 0-102.5-48.1-102.5-122.8 0-76 35.4-119 96.2-119 67.1 0 98.7 39.2 98.7 119 1.3 78.5-31.6 122.8-92.4 122.8zm331.7-286.1c-93.7 0-158.2 69.6-158.2 168.4v11.4c1.3 43 20.3 83.6 51.9 113.9 30.4 27.9 69.6 44.3 111.4 44.3h6.3c44.3 0 86.1-16.5 119-44.3l1.3-1.3-22.8-35.4-2.5 1.3c-26.6 24.1-59.5 38-94.9 38-58.2 0-117.7-38-121.5-122.8h244.2v-2.5s1.3-15.2 1.3-22.8c0-89.9-53.2-148.2-135.5-148.2zm-107.6 134.2c10.1-57 51.9-93.7 106.3-93.7 40.5 0 84.8 24.1 88.6 93.7zm440.6-127.9c-6.3-1.3-11.4-1.3-17.7-2.5-44.3 0-81 27.9-100 74.7v-72.2h-46.8l1.3 320.3v2.5h48.1v-135.4c0-20.3 2.5-41.8 8.9-60.8 15.2-49.4 49.4-81 89.9-81 5.1 0 10.1 0 15.2 1.3h2.5v-46.8z"
+                                fill="currentColor" />
+                        </svg>
+
+                        <svg class="py-3 lg:py-5 w-16 h-auto md:w-20 lg:w-24 text-neutral-400"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="-4.126838974812941 0.900767442746961 939.436838974813 230.18142889845947"
+                            width="2500" height="607">
+                            <path
+                                d="M667.21 90.58c-13.76 0-23.58 4.7-28.4 13.6l-2.59 4.82V92.9h-22.39v97.86h23.55v-58.22c0-13.91 7.56-21.89 20.73-21.89 12.56 0 19.76 7.77 19.76 21.31v58.8h23.56v-63c0-23.3-12.79-37.18-34.22-37.18zm-114.21 0c-27.79 0-45 17.34-45 45.25v13.74c0 26.84 17.41 43.51 45.44 43.51 18.75 0 31.89-6.87 40.16-21l-14.6-8.4c-6.11 8.15-15.87 13.2-25.55 13.2-14.19 0-22.66-8.76-22.66-23.44v-3.89h65.73v-16.23c0-26-17.07-42.74-43.5-42.74zm22.09 43.15h-44.38v-2.35c0-16.11 7.91-25 22.27-25 13.83 0 22.09 8.76 22.09 23.44zm360.22-56.94V58.07h-81.46v18.72h28.56V172h-28.56v18.72h81.46V172h-28.57V76.79zM317.65 55.37c-36.38 0-59 22.67-59 59.18v19.74c0 36.5 22.61 59.18 59 59.18s59-22.68 59-59.18v-19.74c-.01-36.55-22.65-59.18-59-59.18zm34.66 80.27c0 24.24-12.63 38.14-34.66 38.14S283 159.88 283 135.64v-22.45c0-24.24 12.64-38.14 34.66-38.14s34.66 13.9 34.66 38.14zm98.31-45.06c-12.36 0-23.06 5.12-28.64 13.69l-2.53 3.9V92.9h-22.4v131.53h23.56v-47.64l2.52 3.74c5.3 7.86 15.65 12.55 27.69 12.55 20.31 0 40.8-13.27 40.8-42.93v-16.64c0-21.37-12.63-42.93-41-42.93zM468.06 149c0 15.77-9.2 25.57-24 25.57-13.8 0-23.43-10.36-23.43-25.18v-14.72c0-15 9.71-25.56 23.63-25.56 14.69 0 23.82 9.79 23.82 25.56zm298.47-90.92L719 190.76h23.93l9.1-28.44h54.64l.09.28 9 28.16h23.92L792.07 58.07zm-8.66 85.53l21.44-67.08 21.22 67.08zM212.59 95.12a57.27 57.27 0 0 0-4.92-47.05 58 58 0 0 0-62.4-27.79A57.29 57.29 0 0 0 102.06 1a57.94 57.94 0 0 0-55.27 40.14A57.31 57.31 0 0 0 8.5 68.93a58 58 0 0 0 7.13 67.94 57.31 57.31 0 0 0 4.92 47A58 58 0 0 0 83 211.72 57.31 57.31 0 0 0 126.16 231a57.94 57.94 0 0 0 55.27-40.14 57.3 57.3 0 0 0 38.28-27.79 57.92 57.92 0 0 0-7.12-67.95zM126.16 216a42.93 42.93 0 0 1-27.58-10c.34-.19 1-.52 1.38-.77l45.8-26.44a7.43 7.43 0 0 0 3.76-6.51V107.7l19.35 11.17a.67.67 0 0 1 .38.54v53.45A43.14 43.14 0 0 1 126.16 216zm-92.59-39.54a43 43 0 0 1-5.15-28.88c.34.21.94.57 1.36.81l45.81 26.45a7.44 7.44 0 0 0 7.52 0L139 142.52v22.34a.67.67 0 0 1-.27.6l-46.3 26.72a43.14 43.14 0 0 1-58.86-15.77zm-12-100A42.92 42.92 0 0 1 44 57.56V112a7.45 7.45 0 0 0 3.76 6.51l55.9 32.28L84.24 162a.68.68 0 0 1-.65.06L37.3 135.33a43.13 43.13 0 0 1-15.77-58.87zm159 37l-55.9-32.28L144 70a.69.69 0 0 1 .65-.06l46.29 26.73a43.1 43.1 0 0 1-6.66 77.76V120a7.44 7.44 0 0 0-3.74-6.54zm19.27-29c-.34-.21-.94-.57-1.36-.81L152.67 57.2a7.44 7.44 0 0 0-7.52 0l-55.9 32.27V67.14a.73.73 0 0 1 .28-.6l46.29-26.72a43.1 43.1 0 0 1 64 44.65zM78.7 124.3l-19.36-11.17a.73.73 0 0 1-.37-.54V59.14A43.09 43.09 0 0 1 129.64 26c-.34.19-.95.52-1.38.77l-45.8 26.44a7.45 7.45 0 0 0-3.76 6.51zm10.51-22.67l24.9-14.38L139 101.63v28.74l-24.9 14.38-24.9-14.38z"
+                                fill="currentColor" />
+                        </svg>
+
+                        <svg class="py-3 lg:py-5 w-16 h-auto md:w-20 lg:w-24 text-neutral-400" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2428 1002">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M311.5 389.8h191.8l67 117.5 77.8-117.5h178.3L682.7 590.7l154 220.7H648.1l-77.8-135.8-91.7 135.8h-175l153.2-220.7-145.3-200.9Z"
+                                fill="currentColor" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M1279.3 640.7H955.4c2.9 26 10 45.2 21 58a76.5 76.5 0 0 0 61.1 27.3c16 0 31.5-4 45.3-12 8.8-5 18.2-13.7 28.2-26.5l159.2 14.7c-24.4 42.4-53.7 72.7-88 91.2-34.5 18.2-83.8 27.5-148.2 27.5-55.8 0-99.7-7.9-131.8-23.6a193.2 193.2 0 0 1-79.6-75c-21-34.4-31.6-74.6-31.6-121 0-65.8 21.2-119.2 63.3-159.8 42.3-40.8 100.6-61.3 175-61.3 60.3 0 108 9.2 142.8 27.5a184 184 0 0 1 79.8 79.3c18.3 34.7 27.4 79.8 27.4 135.3v18.4ZM1115 563.3c-3.2-31.3-11.6-53.7-25.2-67.1a73.1 73.1 0 0 0-53.8-20.3 73.6 73.6 0 0 0-61.6 30.6c-9.7 12.7-16 31.6-18.5 56.8H1115Zm137-173.5h168.3l81.9 267.1 84.5-267H1750l-179.1 421.5h-143.3L1252 389.8Zm463.2 212c0-64.3 21.7-117.4 65-159 43.5-41.7 102-62.6 176-62.6 84.4 0 148.2 24.5 191.3 73.5 34.6 39.4 52 88 52 145.8 0 64.7-21.5 117.8-64.5 159.3-43 41.3-102.4 62-178.5 62-67.7 0-122.5-17.1-164.3-51.5-51.4-42.6-77-98.4-77-167.6Zm162-.5c0 37.7 7.5 65.5 22.8 83.4a72 72 0 0 0 57.3 27.1c23.4 0 42.5-9 57.4-26.7 15-17.8 22.5-46 22.5-85.4 0-36.4-7.6-63.7-22.7-81.5a70.5 70.5 0 0 0-56-26.7c-23.5 0-43 9-58.3 27-15.4 18.2-23 45.9-23 82.8ZM2363.1.1a64 64 0 0 1 0 127.9 64 64 0 0 1 0-128Z"
+                                fill="currentColor" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M1912.1 671.5c220.3-135 326.4-327 334-419.2 8.7-106.7-71-235.9-358.9-238-345 3.6-790 158.3-1163.6 360.4h138c315.8-152.6 672-266.2 1000.8-275.2 287.7-7.8 304.4 149.2 302 199-3.6 71-74.7 234.5-252.3 373Zm-1315.7-222-36 22.7 10 17.5 26-40.1ZM419.8 567.5C212 717 57 873.2.8 1001.9 77.8 897.1 217 771 394.9 647l40.4-58.1-15.5-21.4Z"
+                                fill="currentColor" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M2036.3 580a819.8 819.8 0 0 0 114.2-122.8l-3-3.5c-8-9.2-17-17.5-26.5-25-21 39.8-50 83.7-88.2 128.3 1.6 7 2.8 14.7 3.5 23Z"
+                                fill="currentColor" />
+                        </svg>
+
+                        <svg class="py-3 lg:py-5 w-16 h-auto md:w-20 lg:w-24 text-neutral-400" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127 33">
+                            <path d="M9.3 16.5C9.3 9 14.3 2.7 21.2.7a16.5 16.5 0 1 0 0 31.6c-6.9-2-11.9-8.3-11.9-15.8Z"
+                                fill="currentColor" />
+                            <path d="M21.7 10c4 0 7.4 2.8 8.5 6.4a8.9 8.9 0 1 0-17 0c1-3.6 4.4-6.3 8.5-6.3Z"
+                                fill="currentColor" />
+                            <path d="M24.8 19.4c0 3-2 5.5-4.8 6.3A6.6 6.6 0 1 0 20 13c2.8.8 4.8 3.4 4.8 6.4Z"
+                                fill="currentColor" />
+                            <path
+                                d="M39.6 13.5A4.4 4.4 0 0 1 44 9.1h1.3v2.7l-1 .2-1 .6-.2.4-.1.5h2.3v3H43v9.2h-3.4v-9.3h-1.3v-2.9h1.3ZM55.7 13.5h3.4v6.1a6.9 6.9 0 0 1-1.7 4.6 6 6 0 0 1-4.5 1.8c-1 0-1.8-.1-2.5-.5a6 6 0 0 1-3.2-3.4c-.3-.8-.4-1.6-.4-2.5v-6H50v6c0 .5 0 1 .2 1.3l.5 1c.2.4.5.6.9.8.3.2.8.3 1.2.3a2.6 2.6 0 0 0 2.1-1c.3-.3.4-.7.5-1l.2-1.4v-6ZM61.2 25.7V9.5h3.4v16.2h-3.4ZM66.9 25.7V9.5h3.3v16.2H67ZM78.5 21.2l3.3-7.7h3.7l-5.7 12.2h-2.7l-5.6-12.2H75l3.4 7.7ZM87 13.5h3.3v12.2H87V13.5Zm1.6-5 .8.1.6.4.4.7.2.7a1.9 1.9 0 0 1-.6 1.4l-.6.4a2 2 0 0 1-.8.1c-.5 0-1-.2-1.3-.5a2 2 0 0 1-.4-2.1c0-.3.2-.5.4-.7l.6-.4.7-.1ZM98.8 13.2a6.7 6.7 0 0 1 4.8 1.9 6.3 6.3 0 0 1 1.9 5.7h-9.8a3.3 3.3 0 0 0 3.2 2.2c.5 0 1-.1 1.4-.4.5-.2.9-.5 1.2-1h3.7c-.2.7-.5 1.3-1 1.8a6.1 6.1 0 0 1-3.3 2.3 7 7 0 0 1-6.9-1.6 6.1 6.1 0 0 1-2-4.5 6.1 6.1 0 0 1 2-4.5c.7-.6 1.4-1 2.2-1.4.8-.3 1.7-.5 2.6-.5Zm3.2 5.2c-.3-.6-.7-1.1-1.2-1.5-.6-.4-1.3-.7-2-.7s-1.4.3-2 .7c-.5.4-.9.9-1.1 1.5h6.3ZM123 13.5h3.6l-5 12.2H119l-2.5-6.5-2.5 6.5h-2.7l-5-12.2h3.6l2.7 7 2.8-7h2.2l2.8 7 2.7-7Z"
+                                fill="currentColor" />
+                        </svg>
+
+                        <svg class="py-3 lg:py-5 w-16 h-auto md:w-20 lg:w-24 text-neutral-400"
+                            xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 88 22" xml:space="preserve"
+                            enable-background="new 0 0 88 22">
+                            <path
+                                d="M36.3 14.6a7.3 7.3 0 0 1-5.6 2.8c-3.8 0-6.8-2.7-6.8-6.2a6 6 0 0 1 2-4.5A6 6 0 0 1 30.5 5c2.2 0 4.3 1 5.6 2.8l-2.5 1.8a3.7 3.7 0 0 0-3.1-1.8 3.5 3.5 0 0 0-3.5 3.5c.1 2 1.7 3.5 3.6 3.5 1.3 0 2.5-.6 3.2-1.7l2.5 1.5z"
+                                fill="currentColor" />
+                            <path d="M37.7 0H40.8V17.1H37.7z" fill="currentColor" />
+                            <path
+                                d="M49.1 14.7c2 0 3.7-1.6 3.8-3.6-.1-2-1.8-3.6-3.8-3.6s-3.7 1.6-3.8 3.6c.1 2 1.7 3.6 3.8 3.6m0-9.8c1.7-.1 3.4.5 4.7 1.7 1.3 1.2 2 2.8 2.1 4.5a6.4 6.4 0 0 1-2.1 4.5 6.4 6.4 0 0 1-4.7 1.7c-3.8 0-6.8-2.7-6.8-6.2s3-6.2 6.8-6.2"
+                                fill="currentColor" />
+                            <path d="M55.3 5.1 59 5.1 62 11.5 65.2 5.1 68.6 5.1 62 17.8z" fill="currentColor" />
+                            <path
+                                d="M77.5 9.4a3 3 0 0 0-2.9-1.9c-1.3 0-2.5.7-3.1 1.9h6zm2 6.3a7 7 0 0 1-4.6 1.6c-3.8 0-6.8-2.7-6.8-6.2 0-1.7.7-3.3 1.9-4.5a6 6 0 0 1 4.6-1.7c1.7-.1 3.3.6 4.5 1.8s1.8 2.8 1.7 4.5v.8h-9.6a3.9 3.9 0 0 0 6.5 1.5l1.8 2.2zm2.8-5.3c0-2.9 2.2-5.2 5.7-5.2V8c-.7 0-1.5.3-2 .8s-.7 1.3-.6 2v6.3h-3.1v-6.7z"
+                                fill="currentColor" />
+                            <path
+                                d="M9.7 5.6a5 5 0 0 0-8.3-3.5C0 3.5-.4 5.6.3 7.4s2.5 3 4.5 3h4.9V5.6zm1.4 0a5 5 0 0 1 8.3-3.5c1.4 1.4 1.8 3.5 1.1 5.3s-2.5 3-4.5 3h-4.9V5.6zm0 11a5 5 0 0 0 8.3 3.5c1.4-1.4 1.8-3.5 1.1-5.3s-2.5-3-4.5-3h-4.9v4.8zm-6.3 3.5c1.9 0 3.5-1.5 3.5-3.5v-3.5H4.8c-1.9 0-3.5 1.5-3.5 3.5s1.6 3.5 3.5 3.5zm4.9-3.5a5 5 0 0 1-8.3 3.5C0 18.7-.4 16.6.3 14.8s2.5-3 4.5-3h4.9v4.8z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- PARTHNERS AND CLIENTS -->
+
+        <!-- ABOU US -->
+        <section id="sobre" class="bg-[#121212] mt-20">
+            <div class="container mx-auto px-4 w-full">
+                <div class="mb-6">
+                    <h3 class="mb-4 text-3xl font-bold text-gray-300 section-title" data-aos="fade-down">
+                        Quem sosmos?
+                    </h3>
+                    <p class="mb-8  text-gray-400" data-aos="fade-down">
+                        Kwantik Global é uma empresa angolana constituida por quadroos altamente especializados,
+                        detentora de soluções tecnologicamenta avançadas para os mercados da energia e Ambiente.
+
+                        A Kwantik
+                        Global constroi, mantem e opera instalações nas áreas da electricidade, água e saneamento,
+                        contribuindo para uma melhor qualidade de vida das populações, da utilização racional dos
+                        Recursos naturais e da prevenção da poluição.
+
+                        O nivel de conhecimento e qualidade de Serviço são garantido pela larga experiência das empresas
+                        fundadoras, com atividades em portugal e internacional, por ua equipa multidisciplinar e
+                        habilitada com soluções técnicas que se encontram na vaguarda da inovação. Hoje somos umas das
+                        referencia num mercado angolana com um elevado volume de projectos realizados, que comtribuiram
+                        para o desenvolovimento sustentável das comunidades, traduzindo-se no reconhecimento da sua
+                        competencia pelo governo de angola e de várias instituições públicas e privadas.
+                        About us
+                        A
+                    </p>
+
+                    <!-- About Cards Section -->
+                    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                        <!-- Card 1 -->
+                        <div class="rounded-lg border border-gray-700 bg-[#1A1A1A] p-6 text-center">
+                            <h4 class="mb-2 text-3xl font-bold text-yellow-400">10+</h4>
+                            <p class="text-gray-400">Anos de experiência</p>
+                        </div>
+                        <div class="rounded-lg border border-gray-700 bg-[#1A1A1A] p-6 text-center">
+                            <h4 class="mb-2 text-3xl font-bold text-yellow-400">10+</h4>
+                            <p class="text-gray-400">Obras realizadas</p>
+                        </div>
+                        <div class="rounded-lg border border-gray-700 bg-[#1A1A1A] p-6 text-center">
+                            <h4 class="mb-2 text-3xl font-bold text-yellow-400">10+</h4>
+                            <p class="text-gray-400">Clientes confirmados</p>
+                        </div>
+                        <div class="rounded-lg border border-gray-700 bg-[#1A1A1A] p-6 text-center">
+                            <h4 class="mb-2 text-3xl font-bold text-yellow-400">10+</h4>
+                            <p class="text-gray-400">Obras realizadas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-10 lg:py-14" data-aos="fade-up">
+                    <div
+                        class="min-h-[35vh] md:min-h-[75vh] bg-[url('assets/imgs/1.jpg')] bg-center bg-cover bg-no-repeat relative rounded-xl">
+                        <div
+                            class="absolute bottom-0 start-0 end-0 max-w-xs text-center mx-auto p-6 md:start-auto md:text-start md:mx-0">
+                            <!-- Card -->
+                            <div class="px-5 py-4 inline-block bg-white rounded-lg md:p-7 dark:bg-neutral-800">
+                                <div class="hidden md:block">
+                                    <h3 class="text-lg font-bold text-gray-800 sm:text-2xl dark:text-neutral-200">Como
+                                        trabalhamos?</h3>
+                                    <p class="mt-2 text-gray-800 dark:text-neutral-200">Soluções com segurança.</p>
+                                </div>
+
+                                <div class="md:mt-16">
+                                    <a class="flex items-center gap-2 text-sm font-medium text-gray-800 hover:text-gray-500 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400"
+                                        href="#">
+                                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polygon points="5 3 19 12 5 21 5 3" />
+                                        </svg>
+                                        Assista o vídeo
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End Card -->
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center gap-4 " data-aos="fade-up">
+                    <a href="#team" class="inline-flex justify-center items-center gap-x-3 text-center bg-linear-to-tl from-yellow-600 
+                    to-yellow-600 hover:from-yellow-700 hover:to-blue-600 focus:outline-hidden
+                     focus:from-yellow-600 focus:to-yellow-600 border border-transparent text-white 
+                     text-sm font-medium rounded-2xl py-3 px-4">
+                        Saber mais sobre nós
+                    </a>
+                    <a href="#contact" class="cursor-pointer rounded-2xl border-1 py-2 px-8 border-yellow-500 text-white
+                         hover:bg-yellow-600 hover:text-text-white font-semibold transition duration-300 ease-in-out">
+                        Contactar agora
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- END ABOU US -->
+
+        <!-- SERVICES -->
+        <section id="servico" class="container mx-auto  w-full py-10 grid  mt-10">
+            <h3 class="mb-4 text-3xl font-bold text-gray-300 section-title" data-aos="fade-down">
+                Principais actividades
+            </h3>
+            <div class="flex grid-cols-3 mt-6 gap-10">
+                <article class="group flex rounded-md w-96
+                 overflow-hidden border border-gray-600
+                 border-outline bg-surface-alt text-on-surface 
+                 dark:border-outline-dark dark:bg-surface-dark-alt
+                  dark:text-on-surface-dark grid col-span-1">
+                    <div class="h-44 md:h-64 overflow-hidden">
+                        <img src="assets/imgs/4.jpg"
+                            class="object-cover transition duration-700 ease-out group-hover:scale-105"
+                            alt="a penguin robot talking with a human" />
+                    </div>
+                    <div class="flex flex-col gap-4 p-6">
+                        <span class="text-sm font-medium text-yellow-500">Electricidade</span>
+                        <h3 class="text-gray-200 text-md lg:text-md font-semibold"
+                            aria-describedby="featureDescription">
+                            Concepção e realização de instalações de energia alétrica
+                            macanica e climática de grandes edificios públicos e privados.
+                        </h3>
+                    </div>
+                </article>
+
+                <article class="group flex rounded-md w-96 
+                    overflow-hidden border border-gray-600
+                    border-outline bg-surface-alt text-on-surface 
+                    dark:border-outline-dark dark:bg-surface-dark-alt
+                    dark:text-on-surface-dark grid col-span-1">
+                    <div class="h-44 md:h-64 overflow-hidden">
+                        <img src="https://img.freepik.com/free-photo/inspector-african-american-worker-factory_1303-30628.jpg?uid=R100560690&ga=GA1.1.920412282.1744557287&semt=ais_hybrid&w=740"
+                            class="object-cover transition duration-700 ease-out group-hover:scale-105"
+                            alt="a penguin robot talking with a human" />
+                    </div>
+                    <div class="flex flex-col gap-4 p-6">
+                        <span class="text-sm font-medium text-yellow-500">Electricidade</span>
+                        <h3 class="text-gray-200 text-md lg:text-md font-semibold"
+                            aria-describedby="featureDescription"> Gestão e manutensão industrial e mutitécnicas.</h3>
+
+                    </div>
+                </article>
+
+                <article class="group flex rounded-md w-96 
+                    overflow-hidden border border-gray-600
+                    border-outline bg-surface-alt text-on-surface 
+                    dark:border-outline-dark dark:bg-surface-dark-alt
+                    dark:text-on-surface-dark grid col-span-1">
+                    <div class="h-44 md:h-64 overflow-hidden">
+                        <img src="https://img.freepik.com/free-photo/high-voltage-electrical-transformers-electricity-distribution-power-plant-close-up_166373-1592.jpg?uid=R100560690&ga=GA1.1.920412282.1744557287&semt=ais_hybrid&w=740"
+                            class="object-cover transition duration-700 ease-out group-hover:scale-105"
+                            alt="a penguin robot talking with a human" />
+                    </div>
+                    <div class="flex flex-col gap-4 p-6">
+                        <span class="text-sm font-medium text-yellow-500">Electricidade</span>
+                        <h3 class="text-gray-200 text-md lg:text-md font-semibold"
+                            aria-describedby="featureDescription">infra-estruturas elétricas em urbanizações e redes de
+                            distibuição pública.</h3>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- END SERVICES-->
+
+
+        <!-- CALL ACTION-->
+        <section class="mt-10">
+            <div class="relative">
+                <div class="sticky top-0 h-screen flex flex-col items-center justify-center call1">
+                    <h2 class="text-4xl font-bold text-white">Ambiente de energia de Angola!</h2>
+                </div>
+                <div
+                    class="sticky top-0 h-screen flex flex-col items-center justify-center bg-gradient-to-b from-indigo-800 to-purple-800 text-white call2">
+                    <h2 class="text-4xl font-bold">A experiência que constrói o futuro!</h2>
+                </div>
+            </div>
+            <div
+                class="relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/squared-bg-element.svg')] dark:before:bg-[url('https://preline.co/assets/svg/examples-dark/squared-bg-element.svg')] before:bg-no-repeat before:bg-top before:size-full before:-z-1 before:transform before:-translate-x-1/2">
+                <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
+                    <!-- Announcement Banner -->
+                    <div class="flex justify-center">
+                        <a class="inline-flex items-center gap-x-2 bg-white border border-gray-200 
+                        text-xs text-gray-600 p-2 px-3 rounded-full transition hover:border-gray-300 focus:outline-hidden focus:border-gray-300 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-neutral-600 dark:focus:border-neutral-600"
+                            href="#">
+                            Explore nosso linkeding
+                            <span class="flex items-center gap-x-1">
+                                <span
+                                    class="border-s border-gray-200 text-yellow-600 ps-2 dark:text-yellow-500 dark:border-neutral-700">Explorar</span>
+                                <svg class="shrink-0 size-4 text-yellow-600" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m9 18 6-6-6-6" />
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- End Announcement Banner -->
+
+                    <!-- Title -->
+                    <div class="mt-5 max-w-2xl text-center mx-auto">
+                        <h1
+                            class="block font-bold text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-neutral-200">
+                            Somos a solução que sua empresa precica!
+                        </h1>
+                    </div>
+                    <!-- End Title -->
+
+                    <div class="mt-5 max-w-3xl text-center mx-auto">
+                        <p class="text-lg text-gray-600 dark:text-neutral-400">Não perca mais seu tempo, temos melhores
+                            soluções que atendem direfentes cenários.</p>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="mt-8 gap-3 flex justify-center">
+                        <a class="inline-flex justify-center items-center gap-x-3 text-center bg-linear-to-tl from-yellow-600 
+                        to-yellow-600 hover:from-yellow-700 hover:to-blue-600 focus:outline-hidden
+                         focus:from-yellow-600 focus:to-yellow-600 border border-transparent text-white 
+                         text-sm font-medium rounded-full py-3 px-4" href="#">
+                            Entrar em contacto!
+                        </a>
+                    </div>
+                    <!-- End Buttons -->
+                </div>
+            </div>
+        </section>
+        <!-- END CALL ACTION-->
+
+        <!-- PORTFOLIO-->
+        <section id="portfolio" class="container mx-auto py-20">
+            <div class="bg-neutral-900 px-10 py-6 rounded-lg">
+                <!-- Approach -->
+                <div class=" px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
+                    <!-- Title -->
+                    <div class="max-w-3xl mb-10 lg:mb-14">
+                        <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">Portfólios</h2>
+                        <p class="mt-1 text-neutral-400">This profound insight guides our comprehensive strategy — from
+                            meticulous research and strategic planning to the seamless execution of brand development
+                            and website or product deployment.</p>
+                    </div>
+                    <!-- End Title -->
+
+                    <!-- Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
+                        <div class="aspect-w-16 aspect-h-9 lg:aspect-none">
+                            <img class="w-full object-cover rounded-xl"
+                                src="https://img.freepik.com/free-photo/high-voltage-electrical-transformers-electricity-distribution-power-plant-close-up_166373-1592.jpg?uid=R100560690&ga=GA1.1.920412282.1744557287&semt=ais_hybrid&w=740"
+                                alt="Features Image">
+                        </div>
+                        <!-- End Col -->
+
+                        <!-- Timeline -->
+                        <div>
+                            <!-- Heading -->
+                            <div class="mb-4">
+                                <h3 class="text-yellow-500 text-xs font-medium uppercase">
+                                    projectos
+                                </h3>
+                            </div>
+                            <!-- End Heading -->
+
+                            <!-- Item -->
+                            <div class="flex gap-x-5 ms-1">
+                                <!-- Icon -->
+                                <div
+                                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+                                    <div class="relative z-10 size-8 flex justify-center items-center">
+                                        <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800
+                                             text-yellow-500 font-semibold text-xs uppercase rounded-full">
+                                            1
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- End Icon -->
+
+                                <!-- Right Content -->
+                                <div class="grow pt-0.5 pb-8 sm:pb-12">
+                                    <p class="text-sm lg:text-base text-neutral-400">
+                                        <span class="text-white">Fase da eletrificação da vila de Ambriz:</span>
+                                        Valor aproximado de 1,7 milhões de USD
+                                    </p>
+                                </div>
+                                <!-- End Right Content -->
+                            </div>
+                            <!-- End Item -->
+                            <!-- Item -->
+                            <div class="flex gap-x-5 ms-1">
+                                <!-- Icon -->
+                                <div
+                                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+                                    <div class="relative z-10 size-8 flex justify-center items-center">
+                                        <span
+                                            class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-yellow-500  font-semibold text-xs uppercase rounded-full">
+                                            2
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- End Icon -->
+
+                                <!-- Right Content -->
+                                <div class="grow pt-0.5 pb-8 sm:pb-12">
+                                    <p class="text-sm lg:text-base text-neutral-400">
+                                        <span class="text-white">Reabilitação do mercado Municipal de Benguela:</span>
+                                        Valor aproximado de 0,5 milhões de USD
+                                    </p>
+                                </div>
+                                <!-- End Right Content -->
+                            </div>
+                            <!-- End Item -->
+                            <!-- Item -->
+                            <div class="flex gap-x-5 ms-1">
+                                <!-- Icon -->
+                                <div
+                                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+                                    <div class="relative z-10 size-8 flex justify-center items-center">
+                                        <span
+                                            class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-yellow-500 font-semibold text-xs uppercase rounded-full">
+                                            3
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- End Icon -->
+
+                                <!-- Right Content -->
+                                <div class="grow pt-0.5 pb-8 sm:pb-12">
+                                    <p class="text-sm lg:text-base text-neutral-400">
+                                        <span class="text-white">Execução de IP em diversos arruamentos para a
+                                            Sonangol:</span>
+                                        Valor aproximado 1,8 milhões de USD
+                                    </p>
+                                </div>
+                                <!-- End Right Content -->
+                            </div>
+                            <!-- End Item -->
+                            <!-- Item -->
+                            <div class="flex gap-x-5 ms-1">
+                                <!-- Icon -->
+                                <div
+                                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+                                    <div class="relative z-10 size-8 flex justify-center items-center">
+                                        <span
+                                            class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-yellow-500 font-semibold text-xs uppercase rounded-full">
+                                            4
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- End Icon -->
+
+                                <!-- Right Content -->
+                                <div class="grow pt-0.5 pb-8 sm:pb-12">
+                                    <p class="text-sm lg:text-base text-neutral-400">
+                                        <span class="text-white">Iluminação da ponte da Catumbela:</span>
+                                        Valor aproximado de 0,25 milhões de USD.
+                                    </p>
+                                </div>
+                                <!-- End Right Content -->
+                            </div>
+                            <!-- End Item -->
+                            <!-- Item -->
+                            <div class="flex gap-x-5 ms-1">
+                                <!-- Icon -->
+                                <div
+                                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+                                    <div class="relative z-10 size-8 flex justify-center items-center">
+                                        <span
+                                            class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-yellow-500 font-semibold text-xs uppercase rounded-full">
+                                            5
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- End Icon -->
+
+                                <!-- Right Content -->
+                                <div class="grow pt-0.5 pb-8 sm:pb-12">
+                                    <p class="text-sm lg:text-base text-neutral-400">
+                                        <span class="text-white">Pavilhão Gimnodesportivos de Cabinda (electricidade e
+                                            AVAC):</span>
+                                        Valor aproximado de 1,2 milhões de USD.
+                                    </p>
+                                </div>
+                                <!-- End Right Content -->
+                            </div>
+                            <!-- End Item -->
+                            <!-- Item -->
+                            <div class="flex gap-x-5 ms-1">
+                                <!-- Icon -->
+                                <div
+                                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+                                    <div class="relative z-10 size-8 flex justify-center items-center">
+                                        <span
+                                            class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-yellow-500 font-semibold text-xs uppercase rounded-full">
+                                            6
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- End Icon -->
+
+                                <!-- Right Content -->
+                                <div class="grow pt-0.5 pb-8 sm:pb-12">
+                                    <p class="text-sm lg:text-base text-neutral-400">
+                                        <span class="text-white">Iluminação e posto de transformação de acesso ao
+                                            estádio de cabinda:</span>
+                                        Valor aproximado de 0,5 milho de USD.
+                                    </p>
+                                </div>
+                                <!-- End Right Content -->
+                            </div>
+                            <!-- End Item -->
+
+                            <!-- Item -->
+                            <div class="flex gap-x-5 ms-1">
+                                <!-- Icon -->
+                                <div
+                                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+                                    <div class="relative z-10 size-8 flex justify-center items-center">
+                                        <span
+                                            class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-yellow-500 font-semibold text-xs uppercase rounded-full">
+                                            7
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- End Icon -->
+
+                                <!-- Right Content -->
+                                <div class="grow pt-0.5 pb-8 sm:pb-12">
+                                    <p class="text-sm md:text-base text-neutral-400">
+                                        <span class="text-white">Parque industrial com 88 pavilhões industriais de viana
+                                            Park, para a Imexco:</span>
+                                        Valor aproximado de 10 milho de USD.
+                                    </p>
+                                </div>
+                                <!-- End Right Content -->
+                            </div>
+                            <!-- End Item -->
+
+                            <!-- Item -->
+                            <div class="flex gap-x-5 ms-1">
+                                <!-- Icon -->
+                                <div
+                                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+                                    <div class="relative z-10 size-8 flex justify-center items-center">
+                                        <span
+                                            class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-yellow-500 font-semibold text-xs uppercase rounded-full">
+                                            8
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- End Icon -->
+
+                                <!-- Right Content -->
+                                <div class="grow pt-0.5 pb-8 sm:pb-12">
+                                    <p class="text-sm md:text-base text-neutral-400">
+                                        <span class="text-white">Execução das instalações elétricas da fábrica de
+                                            detergentes da Refriango:</span>
+                                        Valor aproximado de 3,5 milho de USD.
+                                    </p>
+                                </div>
+                                <!-- End Right Content -->
+                            </div>
+                            <!-- End Item -->
+                        </div>
+                        <!-- End Timeline -->
+                    </div>
+                    <!-- End Grid -->
+                </div>
+            </div>
+        </section>
+        <!-- END PORTFOLIO-->
+
+         <!-- CONTACT-->
+            <Section id="contacto" class="container mx-auto ">
+                <div class="relative bg-linear-to-bl from-blue-100 via-transparent dark:from-blue-950 dark:via-transparent">
+                    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                        <!-- Grid -->
+                        <div class="grid items-center md:grid-cols-2 gap-8 lg:gap-12">
+                            <div>
+                                <!-- Title -->
+                                <div class="mt-4 md:mb-12 max-w-2xl">
+                                    <h1 class="mb-4 font-semibold text-gray-800 text-4xl lg:text-5xl dark:text-neutral-200">
+                                        Não exite nos contacte e receberás o melhor atendimento!
+                                    </h1>
+
+                                </div>
+                                <!-- End Title -->
+
+                                <!-- Blockquote -->
+                                <blockquote class="hidden md:block relative max-w-sm">
+                                    <svg class="absolute top-0 start-0 transform -translate-x-6 -translate-y-8 size-16 text-gray-200 dark:text-neutral-800"
+                                        width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path
+                                            d="M7.39762 10.3C7.39762 11.0733 7.14888 11.7 6.6514 12.18C6.15392 12.6333 5.52552 12.86 4.76621 12.86C3.84979 12.86 3.09047 12.5533 2.48825 11.94C1.91222 11.3266 1.62421 10.4467 1.62421 9.29999C1.62421 8.07332 1.96459 6.87332 2.64535 5.69999C3.35231 4.49999 4.33418 3.55332 5.59098 2.85999L6.4943 4.25999C5.81354 4.73999 5.26369 5.27332 4.84476 5.85999C4.45201 6.44666 4.19017 7.12666 4.05926 7.89999C4.29491 7.79332 4.56983 7.73999 4.88403 7.73999C5.61716 7.73999 6.21938 7.97999 6.69067 8.45999C7.16197 8.93999 7.39762 9.55333 7.39762 10.3ZM14.6242 10.3C14.6242 11.0733 14.3755 11.7 13.878 12.18C13.3805 12.6333 12.7521 12.86 11.9928 12.86C11.0764 12.86 10.3171 12.5533 9.71484 11.94C9.13881 11.3266 8.85079 10.4467 8.85079 9.29999C8.85079 8.07332 9.19117 6.87332 9.87194 5.69999C10.5789 4.49999 11.5608 3.55332 12.8176 2.85999L13.7209 4.25999C13.0401 4.73999 12.4903 5.27332 12.0713 5.85999C11.6786 6.44666 11.4168 7.12666 11.2858 7.89999C11.5215 7.79332 11.7964 7.73999 12.1106 7.73999C12.8437 7.73999 13.446 7.97999 13.9173 8.45999C14.3886 8.93999 14.6242 9.55333 14.6242 10.3Z"
+                                            fill="currentColor" />
+                                    </svg>
+
+                                    <div class="relative z-10">
+                                        <p class="text-xl italic text-gray-800 dark:text-white">
+                                            Faça como eu, hoje tenho certeza que a kwantik Global é a solução que preciso
+                                        </p>
+                                    </div>
+
+                                    <footer class="mt-3">
+                                        <div class="flex items-center gap-x-4">
+                                            <div class="shrink-0">
+                                                <img class="size-8 rounded-full"
+                                                    src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
+                                                    alt="Avatar">
+                                            </div>
+                                            <div class="grow">
+                                                <div class="font-semibold text-gray-800 dark:text-neutral-200">Josh Grazioso
+                                                </div>
+                                                <div class="text-xs text-gray-500 dark:text-neutral-500">Director Payments &
+                                                    Risk | Airbnb</div>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                                <!-- End Blockquote -->
+                            </div>
+                            <!-- End Col -->
+
+                            <div>
+                                <!-- Form -->
+                                <form>
+                                    <div class="lg:max-w-lg lg:mx-auto lg:me-0 ms-auto">
+                                        <!-- Card -->
+                                        <div
+                                            class="p-4 sm:p-7 flex flex-col bg-white rounded-2xl shadow-lg dark:bg-neutral-900">
+                                            <div class="text-center">
+                                                <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Digite
+                                                    seu dados</h1>
+                                            </div>
+                                            <div class="mt-5">
+                                                <button type="button"
+                                                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                                                    <svg class="w-6 h-6 text-yellow-600" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="currentColor" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M7.978 4a2.553 2.553 0 0 0-1.926.877C4.233 6.7 3.699 8.751 4.153 10.814c.44 1.995 1.778 3.893 3.456 5.572 1.68 1.679 3.577 3.018 5.57 3.459 2.062.456 4.115-.073 5.94-1.885a2.556 2.556 0 0 0 .001-3.861l-1.21-1.21a2.689 2.689 0 0 0-3.802 0l-.617.618a.806.806 0 0 1-1.14 0l-1.854-1.855a.807.807 0 0 1 0-1.14l.618-.62a2.692 2.692 0 0 0 0-3.803l-1.21-1.211A2.555 2.555 0 0 0 7.978 4Z" />
+                                                    </svg>
+
+                                                    Fazer ligação agora mesmo!
+                                                </button>
+
+                                                <div
+                                                    class="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-700 dark:after:border-neutral-700">
+                                                    Or</div>
+
+                                                <!-- Grid -->
+                                                <div class="grid grid-cols-2 gap-4">
+                                                    <!-- Input Group -->
+                                                    <div>
+                                                        <!-- Floating Input -->
+                                                        <div class="relative">
+                                                            <input type="text"
+                                                                id="  hs-hero-signup-form-floating-input-first-name" class="peer p-3 sm:p-4 block w-full border
+                                                            rounded-lg sm:text-sm placeholder:text-transparent
+                                                            focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 
+                                                            disabled:pointer-events-none dark:bg-neutral-900
+                                                                dark:border-neutral-700 dark:text-neutral-400
+                                                                dark:focus:ring-neutral-600
+                                                                focus:pt-6
+                                                                focus:pb-2
+                                                                not-placeholder-shown:pt-6
+                                                                not-placeholder-shown:pb-2
+                                                                autofill:pt-6
+                                                                autofill:pb-2" placeholder="Josimar">
+                                                            <label for="hs-hero-signup-form-floating-input-first-name"
+                                                                class="absolute top-0 start-0 p-3 sm:p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                                                                peer-focus:scale-90
+                                                                peer-focus:translate-x-0.5
+                                                                peer-focus:-translate-y-1.5
+                                                                peer-focus:text-gray-500 dark:peer-focus:text-neutral-500
+                                                                peer-not-placeholder-shown:scale-90
+                                                                peer-not-placeholder-shown:translate-x-0.5
+                                                                peer-not-placeholder-shown:-translate-y-1.5
+                                                                peer-not-placeholder-shown:text-gray-500 dark:peer-not-placeholder-shown:text-neutral-500 dark:text-neutral-500">Primeiro
+                                                                nome</label>
+                                                        </div>
+                                                        <!-- End Floating Input -->
+                                                    </div>
+
+                                                    <div>
+                                                        <!-- Floating Input -->
+                                                        <div class="relative">
+                                                            <input type="text"
+                                                                id="hs-hero-signup-form-floating-input-last-name" class="peer p-3 sm:p-4 block w-full border-gray-200 rounded-lg sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:focus:ring-neutral-600
+                                                            focus:pt-6
+                                                            focus:pb-2
+                                                            not-placeholder-shown:pt-6
+                                                            not-placeholder-shown:pb-2
+                                                            autofill:pt-6
+                                                            autofill:pb-2 border" placeholder="Tito">
+                                                            <label for="hs-hero-signup-form-floating-input-last-name"
+                                                                class="absolute top-0 start-0 p-3 sm:p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                                                            peer-focus:scale-90
+                                                            peer-focus:translate-x-0.5
+                                                            peer-focus:-translate-y-1.5
+                                                            peer-focus:text-gray-500 dark:peer-focus:text-neutral-500
+                                                            peer-not-placeholder-shown:scale-90
+                                                            peer-not-placeholder-shown:translate-x-0.5
+                                                            peer-not-placeholder-shown:-translate-y-1.5
+                                                            peer-not-placeholder-shown:text-gray-500 dark:peer-not-placeholder-shown:text-neutral-500 dark:text-neutral-500">Último
+                                                                nome</label>
+                                                        </div>
+                                                        <!-- End Floating Input -->
+                                                    </div>
+
+                                                    <div class="col-span-full">
+                                                        <!-- Floating Input -->
+                                                        <div class="relative">
+                                                            <input type="email"
+                                                                id="hs-hero-signup-form-floating-input-current-password"
+                                                                class="border peer p-3 sm:p-4 block w-full border-gray-200 rounded-lg sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:focus:ring-neutral-600
+                                                        focus:pt-6
+                                                        focus:pb-2
+                                                        not-placeholder-shown:pt-6
+                                                        not-placeholder-shown:pb-2
+                                                        autofill:pt-6
+                                                        autofill:pb-2" placeholder="josimar@teste.com">
+                                                            <label for="hs-hero-signup-form-floating-input-current-password"
+                                                                class="absolute top-0 start-0 p-3 sm:p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                                                        peer-focus:scale-90
+                                                        peer-focus:translate-x-0.5
+                                                        peer-focus:-translate-y-1.5
+                                                        peer-focus:text-gray-500 dark:peer-focus:text-neutral-500
+                                                        peer-not-placeholder-shown:scale-90
+                                                        peer-not-placeholder-shown:translate-x-0.5
+                                                        peer-not-placeholder-shown:-translate-y-1.5
+                                                        peer-not-placeholder-shown:text-gray-500 dark:peer-not-placeholder-shown:text-neutral-500 dark:text-neutral-500">Email</label>
+                                                        </div>
+                                                        <!-- End Floating Input -->
+                                                    </div>
+
+                                                    <div class="col-span-full">
+                                                        <div class="relative">
+                                                            <textarea name="" id=""
+                                                                class="border peer p-3 sm:p-4 block w-full border-gray-200 rounded-lg sm:text-sm 
+                                                        placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500
+                                                        disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 
+                                                        dark:border-neutral-700 dark:text-neutral-400 dark:focus:ring-neutral-600"
+                                                                placeholder="Mensagem"></textarea>
+                                                            <label for="hs-hero-signup-form-floating-input-first-name"
+                                                                class="absolute top-0 start-0 p-3 sm:p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                                                        peer-focus:scale-90
+                                                        peer-focus:translate-x-0.5
+                                                        peer-focus:-translate-y-1.5
+                                                        peer-focus:text-gray-500 dark:peer-focus:text-neutral-500
+                                                        peer-not-placeholder-shown:scale-90
+                                                        peer-not-placeholder-shown:translate-x-0.5
+                                                        peer-not-placeholder-shown:-translate-y-1.5
+                                                        peer-not-placeholder-shown:text-gray-500 dark:peer-not-placeholder-shown:text-neutral-500 dark:text-neutral-500">Mensagem</label>
+                                                        </div>
+                                                        <div class="col-span-full">
+                                                            <div class="mt-5">
+                                                                <button type="submit"
+                                                                    class="w-full 
+                                                            py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium 
+                                                            rounded-lg border border-transparent bg-yellow-600 text-white hover:bg-yellow-700 
+                                                            focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Enviar
+                                                                    solicitação</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Card -->
+                                        </div>
+                                </form>
+                                <!-- End Form -->
+                            </div>
+                            <!-- End Col -->
+                        </div>
+                    </div>
+                    <!-- End Clients Section -->
+                </div>
+            </Section>
+        <!-- END CONTACT-->
+
+
+        <!-- TESTEMUNIAL-->
+        <section class="container mx-auto ">
+            <h3 class="mb-4 text-3xl font-bold text-gray-300 section-title" data-aos="fade-down">
+                Testemunhas
+            </h3>
+            <div class="mt-10">
+                <section class="  w-full">
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-5 w-full">
+                        <div
+                            class="border p-7 rounded-xl bg-neutral-900 drop-shadow-md border-neutral-800/50 col-span-2 flex flex-col gap-y-10 justify-between">
+                            <div class="flex flex-col gap-y-3.5">
+                                <p class="font-bold text-xl text-white">Efficient customer support</p>
+                                <p class="font-medium text-white">The customer support team at our service is incredibly
+                                    responsive and
+                                    helpful. They went above and beyond to assist me with my issue.</p>
+                            </div>
+                            <div class="flex flex-col"><img src="https://randomuser.me/api/portraits/women/43.jpg"
+                                    alt="Emily Smith" class="h-10 w-10">
+                                <p class="pt-2 text-sm font-semibold text-white">Emily Smith</p>
+                                <p class="text-sm font-medium text-slate-100/70">Marketing Manager at ABC Company</p>
+                            </div>
+                        </div>
+                        <div
+                            class="border p-7 rounded-xl bg-neutral-900 drop-shadow-md border-neutral-800/50 col-span-3 flex flex-col gap-y-10 justify-between">
+                            <div class="flex flex-col gap-y-3.5">
+                                <p class="font-bold text-xl text-white">Excellent product features</p>
+                                <p class="font-medium text-white">The features offered by our service are outstanding.
+                                    They
+                                    have greatly
+                                    improved our workflow and efficiency.</p>
+                            </div>
+                            <div class="flex flex-col"><img src="https://randomuser.me/api/portraits/men/34.jpg"
+                                    alt="Michael Johnson" class="h-10 w-10">
+                                <p class="pt-2 text-sm font-semibold text-white">Michael Johnson</p>
+                                <p class="text-sm font-medium text-slate-100/70">CEO at XYZ Corporation</p>
+                            </div>
+                        </div>
+                        <div
+                            class="border p-7 rounded-xl bg-neutral-900 drop-shadow-md border-neutral-800/50 col-span-3 flex flex-col gap-y-10 justify-between">
+                            <div class="flex flex-col gap-y-3.5">
+                                <p class="font-bold text-xl text-white">Seamless integration process</p>
+                                <p class="font-medium text-white">Integrating our systems with our service was smooth
+                                    and
+                                    hassle-free. The
+                                    support team guided us through every step of the process.</p>
+                            </div>
+                            <div class="flex flex-col"><img src="https://randomuser.me/api/portraits/women/71.jpg"
+                                    alt="Sarah Brown" class="h-10 w-10">
+                                <p class="pt-2 text-sm font-semibold text-white">Sarah Brown</p>
+                                <p class="text-sm font-medium text-slate-100/70">CTO at XYZ Corporation</p>
+                            </div>
+                        </div>
+                        <div
+                            class="border p-7 rounded-xl bg-neutral-900 drop-shadow-md border-neutral-800/50 col-span-2 flex flex-col gap-y-10 justify-between">
+                            <div class="flex flex-col gap-y-3.5">
+                                <p class="font-bold text-xl text-white">Reliable service uptime</p>
+                                <p class="font-medium text-white">Our service has consistently maintained high uptime,
+                                    ensuring that our
+                                    operations run smoothly without any disruptions.</p>
+                            </div>
+                            <div class="flex flex-col"><img src="https://randomuser.me/api/portraits/men/71.jpg"
+                                    alt="James White" class="h-10 w-10">
+                                <p class="pt-2 text-sm font-semibold text-white">James White</p>
+                                <p class="text-sm font-medium text-slate-100/70">COO at XYZ Corporation</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <!-- END TESTEMUNIAL-->
+
+           <!-- MAP-->
+           <div class="relative w-full h-96 mt-20">
+            <iframe class="absolute top-0 left-0 w-full h-full"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12080.73732861526!2d-74.0059418!3d40.7127847!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zMDA2JzEwLjAiTiA3NMKwMjUnMzcuNyJX!5e0!3m2!1sen!2sus!4v1648482801994!5m2!1sen!2sus"
+                frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+            </iframe>
+        </div>
+          <!-- END MAP-->
+
+    </main>
+
+    <footer class="bg-[#20182B] text-white pt-12 pb-8 ">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <img src="assets/imgs/logo.png" alt="" class="w-40 ">
+                    </div>
+                    <p class="text-gray-400">Building innovative solutions for the modern world.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <span class="sr-only">LinkedIn</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold">Portfólios</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition"></a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold">Serviços</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Mobile Apps</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">UI/UX Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Digital Marketing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cloud Solutions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold">Contacte nos</h3>
+                    <address class="not-italic text-gray-400">
+                        <p>123 Business Ave</p>
+                        <p>San Francisco, CA 94107</p>
+                        <p class="mt-2">Email: <a href="mailto:info@company.com"
+                                class="hover:text-white transition">info@company.com</a></p>
+                        <p>Phone: <a href="tel:+11234567890" class="hover:text-white transition">+1 (123) 456-7890</a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 todos direitos reservados a Kwantik Global.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition">Políticas e privacidades</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition">Desenvolovido por CodeBlue</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function heroSlider() {
+            return {
+                currentSlide: 0,
+                autoplay: true,
+                interval: null,
+                slides: [
+                    {
+                        title: "Soluções Eléctricas",
+                        description: "Abiente e energia de Angola",
+                        buttonText: "Ligar agora!",
+                        buttonUrl: "#",
+                        image: "https://img.freepik.com/premium-photo/technician-engineer-holding-robot-controller-checking-repairing-automatic-robotic-machine_336744-245.jpg?uid=R100560690&ga=GA1.1.920412282.1744557287&semt=ais_hybrid&w=740"
+                    },
+                    {
+                        title: "Soluções para indústrias",
+                        description: "A experiência que constroi o futuro",
+                        buttonText: "Ligar agora!",
+                        buttonUrl: "#",
+                        image: "https://img.freepik.com/free-photo/pollution-industry-exterior-daylight_23-2149057675.jpg?uid=R100560690&ga=GA1.1.920412282.1744557287&semt=ais_hybrid&w=740"
+                    },
+                    {
+                        title: "Qualidade de serviço",
+                        description: "",
+                        buttonText: "Ligar agora!",
+                        buttonUrl: "#",
+                        image: "https://img.freepik.com/free-photo/electrician-overalls-focused-work-switchboard-with-fuses-using-tablet_169016-66428.jpg?uid=R100560690&ga=GA1.1.920412282.1744557287&semt=ais_hybrid&w=740"
+                    }
+                ],
+                init() {
+                    this.startAutoplay();
+                },
+                next() {
+                    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+                },
+                prev() {
+                    this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+                },
+                goTo(index) {
+                    this.currentSlide = index;
+                },
+                startAutoplay() {
+                    this.interval = setInterval(() => {
+                        if (this.autoplay) {
+                            this.next();
+                        }
+                    }, 5000);
+                },
+                replaceBrokenImage(event) {
+                    // Fallback obrázky z iného zdroja
+                    const fallbacks = [
+                        'https://picsum.photos/id/1018/1920/1080',
+                        'https://picsum.photos/id/1015/1920/1080',
+                        'https://picsum.photos/id/1019/1920/1080'
+                    ];
+                    event.target.src = fallbacks[this.currentSlide % fallbacks.length];
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
